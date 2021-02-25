@@ -10,7 +10,7 @@ exports.crearCuenta = async(req,res,next) =>{
         });
         res.status(200).json({msj:'Exito'});
     } catch (error) {
-        res.status(404).json({error:'Error'});
+        res.status(404).send(error);
         next();
     }
 }
