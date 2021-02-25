@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const routes = require('./routes');
+const cors = require('cors');
+app.use(cors());
 require('dotenv').config();
 
 //Conectar a la BD e importacion de Modelos
