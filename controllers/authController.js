@@ -1,5 +1,4 @@
 const Usuarios = require('../models/Usuarios');
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 exports.autenticarUsuario = async(req,res,next) =>{
@@ -9,7 +8,8 @@ exports.autenticarUsuario = async(req,res,next) =>{
         await res.status(401).json({ msj: 'Ese usuario no existe'}); //Error 401 -> no autorizado
         next();
     }else{
-        if(!bcrypt.compareSync(password,user.password)){ //Si el password es incorrecto
+        next();
+        /*if(!bcrypt.compareSync(password,user.password)){ //Si el password es incorrecto
             await res.status(401).json({msj:'Password Incorrecto'});
             next();
         }else{
@@ -22,11 +22,10 @@ exports.autenticarUsuario = async(req,res,next) =>{
             {
                 expiresIn: '2h'
             });
-            res.json({token});
-        }
+            res.json({token});*/
     }
 }
 
 exports.userLogin = (req,res) =>{
-    res.status(200).send('Ramero');
+    res.status(200).send('Ramerote :V');
 }
