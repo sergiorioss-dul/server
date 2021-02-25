@@ -28,5 +28,5 @@ exports.autenticarUsuario = async(req,res,next) =>{
 }
 
 exports.userLogin = (req,res) =>{
-    res.status(200).send('OK');
+    res.status(200).send('Ramero');
 }
