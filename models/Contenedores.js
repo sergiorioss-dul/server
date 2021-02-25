@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const Usuarios = require('../models/Usuarios');
 const db = require('../config/db');
 
-const Contenedores = db.define('contenedores',{
+const Contenedores = db.define('contenedor',{
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -13,9 +13,11 @@ const Contenedores = db.define('contenedores',{
     nombre: Sequelize.STRING,
     descripcion: Sequelize.STRING,
     propietario: Sequelize.STRING, 
+},{
+    underscored: true,
+    tableName: 'contenedores'
 });
-// Cada contenedor le pertenece a un usuario
-Contenedores.belongsTo(Usuarios);
+Contenedores.belongsTo(Usuarios, { foreignKey: { allowNull: false }});
 
 module.exports = Contenedores;
 

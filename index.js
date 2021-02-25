@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const routes = require('./routes');
+require('dotenv').config();
 
 //Conectar a la BD e importacion de Modelos
 require('./models/Usuarios');
@@ -23,4 +24,10 @@ db.sync()
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use('/',routes());
-app.listen(3000);
+
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
+
+app.listen(port,host,()=>{
+    console.log('🚀');
+});

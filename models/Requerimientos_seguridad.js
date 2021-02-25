@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const Activos_criticos = require('../models/Activos_criticos');
 const db = require('../config/db');
 
-const Requerimientos_seguridad = db.define('requerimientos_seguridad',{
+const Requerimientos_seguridad = db.define('requerimiento_seguridad',{
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -12,7 +12,10 @@ const Requerimientos_seguridad = db.define('requerimientos_seguridad',{
     descripcion1: Sequelize.STRING,
     descripcion2: Sequelize.STRING,
 
+},{
+    underscored: true,
+    tableName: 'requerimientos_seguridad'
 });
-//1:n un activo puede tener muchos requerimientos
-Requerimientos_seguridad.belongsTo(Activos_criticos);
+
+Requerimientos_seguridad.belongsTo(Activos_criticos, { foreignKey: { allowNull: false }});
 module.exports = Requerimientos_seguridad;
