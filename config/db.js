@@ -9,11 +9,11 @@ const sequelize = new Sequelize(
     host: process.env.BD_HOST,
     dialect: 'mysql',
     port: process.env.BD_PORT,
-    operatorsAliases:0, 
-    define:{
+    operatorsAliases: 0, 
+    define: {
         timestamps:false
     },
-    pool:{
+    pool: {
         max:5,
         min:0,
         acquire:30000,

@@ -19,7 +19,8 @@ exports.eliminar = async(req, res) => {
 };
 
 exports.getAll = async(req, res) => {
-    const items = await Model.findAll();
+    const { area_preocupacion_id } = req.params;
+    const items = await Model.findAll({ where: { area_preocupacion_id } });
     res.status(200).json({ items });
 };
 

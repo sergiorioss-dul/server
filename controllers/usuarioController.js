@@ -14,7 +14,7 @@ exports.eliminar = async(req, res) => {
     const response = await Model.destroy({ where: { id } });
 
     if(response) {
-        res.status(200).json({ message: 'Eliminado' });
+        res.status(200).json({ message: 'Usuario eliminado.' });
     }
 };
 
